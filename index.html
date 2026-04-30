@@ -117,9 +117,16 @@
   <p>透過圖表看見情緒變化，幫助你更清楚理解自己的狀態。</p>
 
   <div class="video-banner">
-    <video autoplay muted loop playsinline>
+    <video id="trend-video" autoplay muted loop playsinline preload="metadata" controls>
+      <source src="Video/trend.mp4" type="video/mp4">
       <source src="Video/趨勢圖.mp4" type="video/mp4">
+      您的瀏覽器不支援影片播放。
     </video>
+    <p class="video-fallback" id="trend-video-fallback" hidden>
+      影片無法播放，請點此
+      <a href="Video/trend.mp4" target="_blank" rel="noopener noreferrer">下載影片</a>
+      或改用其他瀏覽器。
+    </p>
   </div>
 </section>
 
@@ -216,6 +223,8 @@
     const lightbox = document.getElementById("image-lightbox");
     const lightboxImage = lightbox.querySelector(".lightbox-image");
     const closeButton = lightbox.querySelector(".lightbox-close");
+    const trendVideo = document.getElementById("trend-video");
+    const trendVideoFallback = document.getElementById("trend-video-fallback");
     const cooperationForm = document.getElementById("cooperation-form");
     const formNote = document.getElementById("form-note");
     let currentIndex = -1;
@@ -320,6 +329,21 @@
         showPrev();
       }
     });
+
+    if (trendVideo && trendVideoFallback) {
+      const showVideoFallback = () => {
+        trendVideoFallback.hidden = false;
+      };
+
+      const hideVideoFallback = () => {
+        trendVideoFallback.hidden = true;
+      };
+
+      trendVideo.addEventListener("loadeddata", hideVideoFallback);
+      trendVideo.addEventListener("playing", hideVideoFallback);
+      trendVideo.addEventListener("error", showVideoFallback);
+      trendVideo.addEventListener("stalled", showVideoFallback);
+    }
 
     if (cooperationForm && formNote) {
       cooperationForm.addEventListener("submit", async (event) => {

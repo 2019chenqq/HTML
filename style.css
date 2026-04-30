@@ -826,6 +826,18 @@ footer .copyright-symbol {
   background: #0d1733;
 }
 
+.video-fallback {
+  margin: 12px 4px 2px;
+  font-size: 14px;
+  color: #2d5465;
+}
+
+.video-fallback a {
+  color: #0b143f;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* hover 動畫 */
 .feature-grid img:hover,
 .single-feature img:hover,
