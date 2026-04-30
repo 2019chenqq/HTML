@@ -481,6 +481,16 @@ footer .copyright-symbol {
   }
 }
 
+.feature-menu blockquote br {
+  display: none;
+}
+
+@media (min-width: 500px) {
+  .feature-menu blockquote br {
+    display: inline;
+  }
+}
+
 .contact-list {
   margin-top: 10px;
 }
