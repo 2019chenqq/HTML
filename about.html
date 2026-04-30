@@ -19,9 +19,16 @@
       </div>
     </a>
 
-    <nav>
+    <button class="nav-toggle" type="button" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="primary-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="primary-nav">
       <div class="nav-item has-submenu">
         <a href="about.html">關於我們</a>
+        <button class="submenu-toggle" type="button" aria-label="展開關於我們子選單" aria-expanded="false">▾</button>
         <div class="submenu">
           <a href="#about-motivation">開發動機</a>
           <a href="#about-expectation">我們期許</a>
@@ -132,5 +139,60 @@
  <footer>
   <p>copyright © 2026 心域 Innera All rights reserved.</p>
 </footer>
+
+<script>
+  (function () {
+    const navbar = document.querySelector(".navbar");
+    const navToggle = document.querySelector(".nav-toggle");
+    const primaryNav = document.getElementById("primary-nav");
+    const aboutNavItem = primaryNav ? primaryNav.querySelector(".has-submenu") : null;
+    const submenuToggle = aboutNavItem ? aboutNavItem.querySelector(".submenu-toggle") : null;
+
+    function closeMobileNav() {
+      if (!navbar || !navToggle) {
+        return;
+      }
+
+      navbar.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+
+      if (aboutNavItem && submenuToggle) {
+        aboutNavItem.classList.remove("submenu-open");
+        submenuToggle.setAttribute("aria-expanded", "false");
+      }
+    }
+
+    if (!navbar || !navToggle || !primaryNav) {
+      return;
+    }
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navbar.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    primaryNav.querySelectorAll("a").forEach((anchor) => {
+      anchor.addEventListener("click", () => {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+          closeMobileNav();
+        }
+      });
+    });
+
+    if (aboutNavItem && submenuToggle) {
+      submenuToggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isSubmenuOpen = aboutNavItem.classList.toggle("submenu-open");
+        submenuToggle.setAttribute("aria-expanded", String(isSubmenuOpen));
+      });
+    }
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 768px)").matches) {
+        closeMobileNav();
+      }
+    });
+  })();
+</script>
 </body>
 </html>
