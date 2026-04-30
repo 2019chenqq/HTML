@@ -57,12 +57,23 @@
 <section class="about-section" id="about-us">
   <h2 class="section-heading">關於我們</h2>
   <p>
-    心域 Innera 透過病患的第一視角，致力於打造一個可被信任的身心照護輔助工具，
+    在治療的過程中，創辦人發現社會支持，尤其是家人，是非常重要的影響因素。<br>
+    缺乏社會支持很容易讓患者的治療過程充滿困難，而有社會支持的患者障礙相對較少。
+  </p>
+  <p>
+    有很多人其實對心理疾病或是情緒壓力缺乏正確觀念，環境中時常出現「你太脆弱」、「你就是不夠累才會失眠」等這類型的否定，
+    <br>這種否定語聽多了，即使不是患者，也容易出現習得性無助的現象。
+  </p>
+    
+  <p>
+    而心域 Innera 團隊的理念，就是希望讓每一位需要出口的人有一個合適的抒發管道，<br>
+    心域 Innera 透過病患的第一視角，致力於打造一個可被信任的身心照護輔助工具，<br>
     讓使用者能以更直覺、更有系統的方式，記錄情緒、症狀、睡眠與用藥歷程。
   </p>
   <p>
-    我們相信，穩定且清晰的日常紀錄，能幫助使用者與專業照護者更有效溝通，
-    也能在每一次回顧中，看見自己的變化與進步。
+    我們相信，穩定且清晰的日常紀錄，能幫助使用者與專業照護者更有效溝通，<br>
+    也能在每一次回顧中，看見自己的變化與進步。<br>
+    我們從《心域》開始，希望身心科患者及心理諮商個案能夠有個溫柔安放自己的地方。
   </p>
 </section>
 
@@ -114,19 +125,33 @@
 
 <section class="feature-group blue-section" id="trend">
   <h2>趨勢分析</h2>
-  <p>透過圖表看見情緒變化，幫助你更清楚理解自己的狀態。</p>
+  <p>透過圖表看見身心變化，幫助你更清楚理解自己的狀態。</p>
 
-  <div class="video-banner">
-    <video id="trend-video" autoplay muted loop playsinline preload="metadata" controls>
-      <source src="Video/trend.mp4" type="video/mp4">
-      <source src="Video/趨勢圖.mp4" type="video/mp4">
-      您的瀏覽器不支援影片播放。
-    </video>
-    <p class="video-fallback" id="trend-video-fallback" hidden>
-      影片無法播放，請點此
-      <a href="Video/trend.mp4" target="_blank" rel="noopener noreferrer">下載影片</a>
-      或改用其他瀏覽器。
-    </p>
+  <div class="video-banner-row">
+    <div class="video-banner">
+      <video class="feature-video" autoplay muted loop playsinline preload="metadata" controls>
+        <source src="Video/trend.mp4" type="video/mp4">
+        <source src="Video/趨勢圖.mp4" type="video/mp4">
+        您的瀏覽器不支援影片播放。
+      </video>
+      <p class="video-fallback" hidden>
+        trend 影片無法播放，請點此
+        <a href="Video/trend.mp4" target="_blank" rel="noopener noreferrer">下載影片</a>
+        或改用其他瀏覽器。
+      </p>
+    </div>
+
+    <div class="video-banner">
+      <video class="feature-video" autoplay muted loop playsinline preload="metadata" controls>
+        <source src="Video/med_compare.mp4" type="video/mp4">
+        您的瀏覽器不支援影片播放。
+      </video>
+      <p class="video-fallback" hidden>
+        med_compare 影片無法播放，請點此
+        <a href="Video/med_compare.mp4" target="_blank" rel="noopener noreferrer">下載影片</a>
+        或改用其他瀏覽器。
+      </p>
+    </div>
   </div>
 </section>
 
@@ -223,8 +248,7 @@
     const lightbox = document.getElementById("image-lightbox");
     const lightboxImage = lightbox.querySelector(".lightbox-image");
     const closeButton = lightbox.querySelector(".lightbox-close");
-    const trendVideo = document.getElementById("trend-video");
-    const trendVideoFallback = document.getElementById("trend-video-fallback");
+    const featureVideos = Array.from(document.querySelectorAll(".feature-video"));
     const cooperationForm = document.getElementById("cooperation-form");
     const formNote = document.getElementById("form-note");
     let currentIndex = -1;
@@ -330,20 +354,25 @@
       }
     });
 
-    if (trendVideo && trendVideoFallback) {
+    featureVideos.forEach((videoElement) => {
+      const fallback = videoElement.parentElement.querySelector(".video-fallback");
+      if (!fallback) {
+        return;
+      }
+
       const showVideoFallback = () => {
-        trendVideoFallback.hidden = false;
+        fallback.hidden = false;
       };
 
       const hideVideoFallback = () => {
-        trendVideoFallback.hidden = true;
+        fallback.hidden = true;
       };
 
-      trendVideo.addEventListener("loadeddata", hideVideoFallback);
-      trendVideo.addEventListener("playing", hideVideoFallback);
-      trendVideo.addEventListener("error", showVideoFallback);
-      trendVideo.addEventListener("stalled", showVideoFallback);
-    }
+      videoElement.addEventListener("loadeddata", hideVideoFallback);
+      videoElement.addEventListener("playing", hideVideoFallback);
+      videoElement.addEventListener("error", showVideoFallback);
+      videoElement.addEventListener("stalled", showVideoFallback);
+    });
 
     if (cooperationForm && formNote) {
       cooperationForm.addEventListener("submit", async (event) => {

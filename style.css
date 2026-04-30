@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -14,6 +14,15 @@ body {
   background: #f4fbff;
   color: #2f3e46;
   line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 /* 導覽列 */
@@ -436,6 +445,7 @@ footer .copyright-symbol {
 }
 
 .about-section {
+  width: min(96%, 1200px);
   margin-top: 28px;
   margin-bottom: 38px;
 }
@@ -459,6 +469,16 @@ footer .copyright-symbol {
   color: #3e5e6a;
   font-size: 17px;
   line-height: 1.9;
+}
+
+.about-section p br {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .about-section p br {
+    display: inline;
+  }
 }
 
 .contact-list {
@@ -791,14 +811,23 @@ footer .copyright-symbol {
 }
 
 /* 趨勢影片：完整顯示，不裁切內容 */
+.video-banner-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 280px));
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .video-banner {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
-  max-width: min(92vw, 920px);
-  margin: 0 auto;
-  padding: 14px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0;
+  padding: 10px;
   border-radius: 34px;
   overflow: hidden;
   background: linear-gradient(145deg, #e8f7ff, #d2f0ff);
@@ -817,13 +846,12 @@ footer .copyright-symbol {
 }
 
 .video-banner video {
-  width: auto;
+  width: 100%;
   height: auto;
-  max-width: min(88vw, 880px);
-  max-height: min(70vh, 620px);
-  object-fit: contain;
+  max-width: 100%;
+  max-height: none;
   border-radius: 24px;
-  background: #0d1733;
+  background: transparent;
 }
 
 .video-fallback {
@@ -866,10 +894,132 @@ footer .copyright-symbol {
     border-radius: 24px;
   }
 
+  .video-banner-row {
+    grid-template-columns: 1fr;
+    width: min(88vw, 280px);
+    gap: 14px;
+  }
+
   .video-banner video {
-    max-width: 90vw;
-    max-height: 62vh;
+    max-width: 100%;
+    max-height: none;
     border-radius: 18px;
+  }
+}
+
+/* ===== 媒體尺寸統一（圖片 + 影片） ===== */
+:root {
+  --media-card-width: clamp(230px, 23vw, 290px);
+  --media-card-height: clamp(390px, 38vw, 500px);
+  --media-card-radius: 28px;
+}
+
+.feature-grid,
+.single-feature {
+  width: 100%;
+  justify-content: center;
+}
+
+.video-banner-row {
+  grid-template-columns: repeat(2, var(--media-card-width));
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.feature-grid img,
+.single-feature img,
+.video-banner .feature-video {
+  width: var(--media-card-width) !important;
+  height: var(--media-card-height) !important;
+  max-width: 100% !important;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--media-card-radius);
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(80, 160, 180, 0.18);
+}
+
+.video-banner {
+  width: auto;
+  max-width: none;
+  padding: 10px;
+  border-radius: var(--media-card-radius);
+}
+
+.video-fallback {
+  max-width: var(--media-card-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --media-card-width: clamp(210px, 33vw, 260px);
+    --media-card-height: clamp(350px, 55vw, 460px);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --media-card-width: min(84vw, 300px);
+    --media-card-height: clamp(380px, 120vw, 500px);
+  }
+
+  body {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: 0.2px;
+    line-height: 1.35;
+  }
+
+  .hero-left h2 {
+    font-size: clamp(36px, 10vw, 46px);
+  }
+
+  .subtitle {
+    font-size: clamp(18px, 5.4vw, 22px);
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+  }
+
+  .desc,
+  .about-section p,
+  .contact-section p,
+  .feature-group p,
+  .feature-card p,
+  .form-help,
+  .form-note {
+    font-size: 15px;
+    line-height: 1.78;
+    text-align: left;
+    max-width: 34ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-group h2,
+  .section-heading,
+  .feature-menu-title {
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.35;
+  }
+
+  .feature-card h3 {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .video-banner-row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
   }
 }
 
