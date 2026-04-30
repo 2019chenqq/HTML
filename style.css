@@ -1013,6 +1013,11 @@ footer .copyright-symbol {
     margin-right: auto;
   }
 
+  .about-section p {
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
+
   .feature-card p {
     text-align: center;
     max-width: none;
