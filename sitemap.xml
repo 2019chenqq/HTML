@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -6,11 +7,27 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+>>>>>>> 755aeb897fc54a608b0977dd9b575f3dc2e80f7c
 
 <url>
   <loc>https://2019chenqq.github.io/HTML/</loc>
   <lastmod>2026-04-30T10:02:42+00:00</lastmod>
+<<<<<<< HEAD
 </url>
 
 
+=======
+</url>
+
+
+>>>>>>> 755aeb897fc54a608b0977dd9b575f3dc2e80f7c
 </urlset>
