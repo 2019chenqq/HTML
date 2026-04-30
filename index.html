@@ -20,9 +20,9 @@
 </div>
 
   <nav>
-    <a href="#">關於我們</a>
-    <a href="#">功能介紹</a>
-    <a href="#">聯繫我們</a>
+    <a href="#about-us">關於我們</a>
+    <a href="#feature-intro">功能介紹</a>
+    <a href="#contact-us">聯繫我們</a>
   </nav>
 </header>
 
@@ -54,8 +54,21 @@
 </div>
 
 </section>
-<section class="feature-menu">
+<section class="about-section" id="about-us">
+  <h2 class="section-heading">關於我們</h2>
+  <p>
+    心域 Innera 透過病患的第一視角，致力於打造一個可被信任的身心照護輔助工具，
+    讓使用者能以更直覺、更有系統的方式，記錄情緒、症狀、睡眠與用藥歷程。
+  </p>
+  <p>
+    我們相信，穩定且清晰的日常紀錄，能幫助使用者與專業照護者更有效溝通，
+    也能在每一次回顧中，看見自己的變化與進步。
+  </p>
+</section>
+
+<section class="feature-menu" id="feature-intro">
     <blockquote>心域，探索身心的每一個角落，<br>創造更好的身心照護。</blockquote>
+  <h2 class="feature-menu-title">功能介紹</h2>
   <div class="feature-menu-grid">
     <a href="#daily-record" class="feature-card">
       <span>01</span>
@@ -144,6 +157,55 @@
   <img class="lightbox-image" src="" alt="放大預覽">
 </div>
 
+<section class="contact-section" id="contact-us">
+  <h2 class="section-heading">聯繫我們</h2>
+  <p>若您有任何合作提案、使用建議或服務諮詢，歡迎透過以下方式與我們聯絡：</p>
+  <div class="contact-list">
+    <p>電子信箱：innera0120@gmail.com</p>
+    <p>Instagram：</p>
+    <p>服務時間：週一至週五 09:00 - 18:00</p>
+  </div>
+    <form
+      class="cooperation-form"
+      id="cooperation-form"
+      data-gform-action="https://docs.google.com/forms/d/e/1FAIpQLSeqIADPsazuuOQt42L-IsX3ao3HVnV0WATkOBvRD825s2kZyg/formResponse"
+      data-entry-name="entry.263943149"
+      data-entry-organization="entry.1408358673"
+      data-entry-email="entry.1960804853"
+      data-entry-phone="entry.2023624273"
+      data-entry-message="entry.1545663490"
+    >
+      <h3>合作洽詢表單</h3>
+      <p class="form-help">表單已串接 Google Forms，送出後我們會盡快與您聯繫。</p>
+      <div class="form-grid">
+        <label>
+          姓名
+          <input type="text" name="name" required placeholder="請輸入您的姓名">
+        </label>
+        <label>
+          單位 / 公司名稱
+          <input type="text" name="organization" required placeholder="請輸入您的單位或公司名稱">
+        </label>
+        <label>
+          電子信箱
+          <input type="email" name="email" required placeholder="name@example.com">
+        </label>
+        <label>
+          聯絡電話
+          <input type="tel" name="phone" placeholder="請輸入聯絡電話（選填）">
+        </label>
+      </div>
+
+      <label class="full-width">
+        合作需求內容
+        <textarea name="message" rows="5" required placeholder="請簡要描述合作需求、預期目標或時程"></textarea>
+      </label>
+
+      <button type="submit" class="submit-btn">送出合作需求</button>
+      <p class="form-note" id="form-note" aria-live="polite"></p>
+    </form>
+</section>
+
 <footer>
   <p>copyright © 2026 心域 Innera All rights reserved.</p>
 </footer>
@@ -154,6 +216,8 @@
     const lightbox = document.getElementById("image-lightbox");
     const lightboxImage = lightbox.querySelector(".lightbox-image");
     const closeButton = lightbox.querySelector(".lightbox-close");
+    const cooperationForm = document.getElementById("cooperation-form");
+    const formNote = document.getElementById("form-note");
     let currentIndex = -1;
     let touchStartX = 0;
     let touchStartY = 0;
@@ -256,6 +320,85 @@
         showPrev();
       }
     });
+
+    if (cooperationForm && formNote) {
+      cooperationForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const gformAction = cooperationForm.dataset.gformAction || "";
+        const entryMap = {
+          name: cooperationForm.dataset.entryName,
+          organization: cooperationForm.dataset.entryOrganization,
+          email: cooperationForm.dataset.entryEmail,
+          phone: cooperationForm.dataset.entryPhone,
+          message: cooperationForm.dataset.entryMessage,
+        };
+
+        const hasValidAction = gformAction && !gformAction.includes("YOUR_FORM_ID");
+        const availableEntries = Object.values(entryMap).filter((entryId) => entryId && entryId.startsWith("entry."));
+        const missingConfig = !hasValidAction || !availableEntries.length;
+
+        if (missingConfig) {
+          formNote.className = "form-note error";
+          formNote.textContent = "Google Forms 尚未完成設定，請先填入正確的 formResponse 網址與 entry 欄位編號。";
+          return;
+        }
+
+        const formData = new FormData(cooperationForm);
+        const body = new URLSearchParams();
+
+        // If Google Form only has one field, combine all values into one message payload.
+        const hasSingleEntryMode =
+          !!entryMap.message &&
+          !entryMap.name &&
+          !entryMap.organization &&
+          !entryMap.email &&
+          !entryMap.phone;
+
+        if (hasSingleEntryMode) {
+          const combinedMessage = [
+            `姓名：${(formData.get("name") || "").toString().trim()}`,
+            `單位 / 公司名稱：${(formData.get("organization") || "").toString().trim()}`,
+            `電子信箱：${(formData.get("email") || "").toString().trim()}`,
+            `聯絡電話：${(formData.get("phone") || "").toString().trim() || "未提供"}`,
+            "",
+            "合作需求內容：",
+            (formData.get("message") || "").toString().trim(),
+          ].join("\n");
+
+          body.append(entryMap.message, combinedMessage);
+        } else {
+          Object.entries(entryMap).forEach(([fieldName, entryId]) => {
+            if (!entryId || !entryId.startsWith("entry.")) {
+              return;
+            }
+
+            const value = (formData.get(fieldName) || "").toString().trim();
+            if (value) {
+              body.append(entryId, value);
+            }
+          });
+        }
+
+        try {
+          await fetch(gformAction, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            },
+            body,
+          });
+
+          formNote.className = "form-note success";
+          formNote.textContent = "感謝您的來信，我們已收到合作需求，將於 1-3 個工作天內與您聯繫。";
+          cooperationForm.reset();
+        } catch (error) {
+          formNote.className = "form-note error";
+          formNote.textContent = "送出失敗，請稍後再試，或直接寄信到 innera0120@gmail.com。";
+        }
+      });
+    }
   })();
 </script>
 </body>
