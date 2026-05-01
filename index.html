@@ -201,7 +201,7 @@
       id="cooperation-form"
     >
       <h3>合作洽詢表單</h3>
-      <p class="form-help">表單會直接送到我們的郵件系統，寄到 innera0120@gmail.com。若在本機測試，請用 http://localhost:3000 開啟網站。</p>
+      <p class="form-help">表單會直接送到我們的郵件系統，寄到 innera0120@gmail.com。</p>
       <div class="form-grid">
         <label>
           姓名
@@ -439,6 +439,10 @@
           const result = contentType.includes("application/json") ? await response.json() : {};
 
           if (!response.ok) {
+            if (response.status === 405) {
+              throw new Error("目前這個頁面沒有連到寄信後端。請用 http://localhost:3000 測試，或先把 Node 後端部署上線後再從正式網站送出。");
+            }
+
             throw new Error(result.error || `送出失敗（${response.status}）`);
           }
 
