@@ -199,9 +199,15 @@
     <form
       class="cooperation-form"
       id="cooperation-form"
+      data-gform-action="https://docs.google.com/forms/d/e/1FAIpQLSeqIADPsazuuOQt42L-IsX3ao3HVnV0WATkOBvRD825s2kZyg/formResponse"
+      data-entry-name="entry.263943149"
+      data-entry-organization="entry.1408358673"
+      data-entry-email="entry.1960804853"
+      data-entry-phone="entry.2023624273"
+      data-entry-message="entry.1545663490"
     >
       <h3>合作洽詢表單</h3>
-      <p class="form-help">表單會直接送到我們的郵件系統，寄到 innera0120@gmail.com。</p>
+      <p class="form-help">表單已串接 Google Forms，送出後我們會盡快與您聯繫。</p>
       <div class="form-grid">
         <label>
           姓名
@@ -419,43 +425,83 @@
       cooperationForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
+        const rawGformAction = cooperationForm.dataset.gformAction || "";
+        const gformAction = rawGformAction.includes("/viewform")
+          ? rawGformAction.replace(/\/viewform.*$/, "/formResponse")
+          : rawGformAction;
+        const entryMap = {
+          name: cooperationForm.dataset.entryName,
+          organization: cooperationForm.dataset.entryOrganization,
+          email: cooperationForm.dataset.entryEmail,
+          phone: cooperationForm.dataset.entryPhone,
+          message: cooperationForm.dataset.entryMessage,
+        };
+
+        const hasValidAction =
+          gformAction &&
+          gformAction.includes("docs.google.com/forms") &&
+          gformAction.includes("/formResponse") &&
+          !gformAction.includes("YOUR_FORM_ID");
+        const availableEntries = Object.values(entryMap).filter((entryId) => entryId && entryId.startsWith("entry."));
+        const missingConfig = !hasValidAction || !availableEntries.length;
+
+        if (missingConfig) {
+          formNote.className = "form-note error";
+          formNote.textContent = "Google Forms 設定不完整：請使用 docs.google.com 的 formResponse 網址，並填入正確 entry 欄位編號。";
+          return;
+        }
+
         const formData = new FormData(cooperationForm);
-        const payload = Object.fromEntries(formData.entries());
-        const apiEndpoint = window.location.protocol === "file:" ? "http://localhost:3000/api/contact" : "/api/contact";
+        const body = new URLSearchParams();
 
-        formNote.className = "form-note";
-        formNote.textContent = "送出中...";
+        const hasSingleEntryMode =
+          !!entryMap.message &&
+          !entryMap.name &&
+          !entryMap.organization &&
+          !entryMap.email &&
+          !entryMap.phone;
 
-        try {
-          const response = await fetch(apiEndpoint, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
-          });
+        if (hasSingleEntryMode) {
+          const combinedMessage = [
+            `姓名：${(formData.get("name") || "").toString().trim()}`,
+            `單位 / 公司名稱：${(formData.get("organization") || "").toString().trim()}`,
+            `電子信箱：${(formData.get("email") || "").toString().trim()}`,
+            `聯絡電話：${(formData.get("phone") || "").toString().trim() || "未提供"}`,
+            "",
+            "合作需求內容：",
+            (formData.get("message") || "").toString().trim(),
+          ].join("\n");
 
-          const contentType = response.headers.get("content-type") || "";
-          const result = contentType.includes("application/json") ? await response.json() : {};
-
-          if (!response.ok) {
-            if (response.status === 405) {
-              throw new Error("目前這個頁面沒有連到寄信後端。請用 http://localhost:3000 測試，或先把 Node 後端部署上線後再從正式網站送出。");
+          body.append(entryMap.message, combinedMessage);
+        } else {
+          Object.entries(entryMap).forEach(([fieldName, entryId]) => {
+            if (!entryId || !entryId.startsWith("entry.")) {
+              return;
             }
 
-            throw new Error(result.error || `送出失敗（${response.status}）`);
-          }
+            const value = (formData.get(fieldName) || "").toString().trim();
+            if (value) {
+              body.append(entryId, value);
+            }
+          });
+        }
+
+        try {
+          await fetch(gformAction, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            },
+            body,
+          });
 
           formNote.className = "form-note success";
           formNote.textContent = "感謝您的來信，我們已收到合作需求，將於 1-3 個工作天內與您聯繫。";
           cooperationForm.reset();
         } catch (error) {
-          const isNetworkError = String(error && error.message ? error.message : "").toLowerCase().includes("failed to fetch");
-
           formNote.className = "form-note error";
-          formNote.textContent = isNetworkError
-            ? "無法連到寄信伺服器。請先執行 npm.cmd start，並用 http://localhost:3000 開啟網站後再送出。"
-            : error.message || "送出失敗，請稍後再試，或直接寄信到 innera0120@gmail.com。";
+          formNote.textContent = "送出失敗，請稍後再試，或直接寄信到 innera0120@gmail.com。";
         }
       });
     }
