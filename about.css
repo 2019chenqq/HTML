@@ -1,6 +1,7 @@
 #about-us,
 #about-motivation,
 #about-expectation,
+#about-social,
 #about-roadmap,
 #about-timeline {
   scroll-margin-top: 110px;
@@ -323,6 +324,66 @@
   }
 }
 
+/* ===== 關於我們：社會議題 ===== */
+.sdg-section {
+  text-align: left;
+}
+
+.sdg-section h2 {
+  margin: 0;
+  color: #0b143f;
+  font-size: clamp(28px, 3.2vw, 38px);
+  line-height: 1.2;
+}
+
+.sdg-subtitle {
+  margin: 12px 0 26px;
+  max-width: 40ch;
+  color: #5a7280;
+  font-size: 17px;
+  line-height: 1.82;
+}
+
+.sdg-card {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  padding: 22px;
+  margin-bottom: 16px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, #ffffff 0%, #eefaff 100%);
+  border: 1px solid rgba(160, 216, 233, 0.72);
+  box-shadow: 0 14px 34px rgba(70, 140, 165, 0.12);
+}
+
+.sdg-card:last-child {
+  margin-bottom: 0;
+}
+
+.sdg-card img {
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #ffffff;
+  border: 1px solid rgba(155, 215, 245, 0.7);
+}
+
+.sdg-card h3 {
+  margin: 2px 0 8px;
+  color: #0d3150;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.sdg-card p {
+  margin: 0;
+  color: #456372;
+  font-size: 16px;
+  line-height: 1.82;
+}
+
 @media (min-width: 768px) {
   .about-page .about-hero h2 br,
   .about-page .about-card br {
@@ -384,6 +445,40 @@
     line-height: 1.82;
   }
 
+  .sdg-section h2 {
+    font-size: clamp(24px, 6.8vw, 32px);
+  }
+
+  .sdg-subtitle {
+    margin-bottom: 20px;
+    max-width: none;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .sdg-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .sdg-card img {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+  }
+
+  .sdg-card h3 {
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+
+  .sdg-card p {
+    font-size: 15px;
+    line-height: 1.78;
+  }
+
   #about-timeline .about-timeline-intro {
     margin-bottom: 24px;
     font-size: 15px;
@@ -420,7 +515,4 @@
     width: 18px;
   }
 
-  .timeline-header h2 {
-    font-size: 32px;
-  }
 }
