@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>藥物紀錄 QA | 心域 Innera</title>
+  <meta name="description" content="藥物紀錄功能 Q&A：基礎功能、調藥追蹤、隱私安全、整合分析與使用技巧。">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .faq-page,
+    .faq-page h2,
+    .faq-page h3,
+    .faq-page p,
+    .faq-page li {
+      font-family: "Inter", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .faq-page {
+      padding-top: 120px;
+      background: linear-gradient(180deg, #eefaff 0%, #f8fdff 100%);
+      min-height: 100vh;
+    }
+
+    .faq-wrap {
+      width: min(980px, 92%);
+      margin: 0 auto 72px;
+    }
+
+    .faq-hero {
+      margin-bottom: 28px;
+    }
+
+    .faq-kicker {
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #4e7a93;
+      font-weight: 700;
+    }
+
+    .faq-hero h2 {
+      margin: 8px 0 10px;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.2;
+      color: #0b143f;
+    }
+
+    .faq-hero p {
+      margin: 0;
+      color: #325166;
+      max-width: 760px;
+    }
+
+    .faq-section {
+      margin-top: 28px;
+    }
+
+    .faq-section h3 {
+      margin: 0 0 12px;
+      color: #123950;
+      font-size: 24px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid rgba(120, 180, 210, 0.35);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 8px 20px rgba(35, 80, 105, 0.08);
+    }
+
+    .faq-item h4 {
+      margin: 0 0 8px;
+      color: #14344d;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: #27465c;
+    }
+
+    .faq-item ul,
+    .faq-item ol {
+      margin: 8px 0 0;
+      padding-left: 1.2em;
+      color: #27465c;
+    }
+
+    @media (max-width: 768px) {
+      .faq-page {
+        padding-top: 104px;
+      }
+
+      .faq-section h3 {
+        font-size: 21px;
+      }
+
+      .faq-item {
+        border-radius: 14px;
+        padding: 15px;
+      }
+
+      .faq-item h4 {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo-area" href="../index.html" aria-label="回到首頁">
+      <img src="../images/logo.jpg" class="logo" alt="心域 Logo">
+      <div class="brand-text">
+        <div class="brand-title">
+          <h1>心域</h1>
+          <span>INNERA</span>
+        </div>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="primary-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="primary-nav">
+      <div class="nav-item has-submenu">
+        <a href="../about/about.html">關於我們</a>
+        <button class="submenu-toggle" type="button" aria-label="展開關於我們子選單" aria-expanded="false">▾</button>
+        <div class="submenu">
+          <a href="../about/about.html#about-motivation">開發動機</a>
+          <a href="../about/about.html#about-expectation">我們期許</a>
+          <a href="../about/about.html#about-social">社會議題</a>
+          <a href="../about/about.html#about-timeline">發展時間線</a>
+          <a href="../about/about.html#about-roadmap">未來規劃</a>
+        </div>
+      </div>
+      <a href="../index.html#feature-intro">功能介紹</a>
+      <a href="../index.html#contact-us">聯繫我們</a>
+      <div class="nav-item has-submenu">
+        <a href="faq.html">常見問題</a>
+        <button class="submenu-toggle" type="button" aria-label="展開常見問題子選單" aria-expanded="false">▾</button>
+        <div class="submenu">
+          <a href="faq-emotion-trend.html">情緒趨勢圖</a>
+          <a href="faq-diary.html">日記功能</a>
+          <a href="faq-medication.html">藥物紀錄</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="faq-page">
+    <section class="faq-wrap">
+      <header class="faq-hero">
+        <p class="faq-kicker">FAQ / 藥物紀錄</p>
+        <h2>藥物紀錄功能 QA</h2>
+        <p>整理藥物紀錄功能常見疑問，包含管理方式、調藥追蹤、隱私安全與實務使用技巧。</p>
+      </header>
+
+      <section class="faq-section" aria-label="基礎功能">
+        <h3>基礎功能</h3>
+        <div class="faq-list">
+          <article class="faq-item"><h4>Q1：藥物紀錄功能是做什麼的？</h4><p>A：藥物紀錄功能讓你全面管理正在服用的藥物。你可以記錄所有處方藥和常用藥物，追蹤每天的服藥情況，記錄醫生調整的藥物，並觀察藥物對你情緒和症狀的影響。它幫助你建立完整的醫療史，便於向醫師報告，也能發現藥物與心理狀態之間的關聯。</p></article>
+          <article class="faq-item"><h4>Q2：我可以管理多少種藥物？</h4><p>A：你可以管理無限數量的藥物。無論是進行中的長期用藥、過去的療程，還是需要時才用的藥物，都可以全部記錄。系統會幫你區分正在服用和已停用的藥物，讓列表保持清潔有序。</p></article>
+          <article class="faq-item"><h4>Q3：可以一種藥物設定多個服用時間嗎？</h4><p>A：可以。每種藥物最多支持 6 個服用時間槽：早上、中午、下午、晚上、睡前、以及需要時。每個時間槽可以獨立設定劑量和具體時間。</p></article>
+          <article class="faq-item"><h4>Q4：如何添加一種新藥物？</h4><p>A：進入藥物頁面，點擊右上角「+」新增藥物，填入藥物名、劑型、適應症，設定服用頻率和時間槽，也可加備註、開始日期與狀態，儲存後就會出現在藥物列表。</p></article>
+          <article class="faq-item"><h4>Q5：什麼是每日服藥打卡？</h4><p>A：每日服藥打卡讓你記錄實際有沒有按時服藥。系統會統計服藥遵循率，幫助你和醫師了解療程實際情況，也方便回顧是否有漏服。</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-label="調藥與追蹤">
+        <h3>調藥與追蹤</h3>
+        <div class="faq-list">
+          <article class="faq-item"><h4>Q6：如何記錄醫生調整的藥物？</h4><p>A：在藥物紀錄頁面點擊右上角中間的圖示，新增調整或回診紀錄，記下日期、變化內容與回饋。每次調整都會保存在調藥時間線中。</p></article>
+          <article class="faq-item"><h4>Q7：如何查看我的調藥歷史？</h4><p>A：回診/調藥頁面右上角圖示為調藥時間線，按時間顯示所有修改。</p></article>
+          <article class="faq-item"><h4>Q8：可以查看藥物與症狀的關係嗎？</h4><p>A：可以。可在藥物與症狀分析頁面選藥物，查看服用前後變化，作為回診與調藥參考。</p></article>
+          <article class="faq-item"><h4>Q9：多長時間記錄一次藥物資訊？</h4><p>A：服藥打卡建議每天記錄；調藥資訊通常在每次回診後更新即可。</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-label="隱私與安全">
+        <h3>隱私與安全</h3>
+        <div class="faq-list">
+          <article class="faq-item"><h4>Q10：我的藥物紀錄會被加密保護嗎？</h4><p>A：目前藥物紀錄沒有使用端到端加密（E2EE），主要透過帳號權限與平台安全機制保護。</p></article>
+          <article class="faq-item"><h4>Q11：我的醫療隱私會被洩露嗎？</h4><p>A：不會。藥物紀錄預設為私人，不會分享給第三方或用於廣告用途，除非你主動分享。</p></article>
+          <article class="faq-item"><h4>Q12：同步到雲端時資訊是否安全？</h4><p>A：同步會使用一般安全傳輸與帳號存取控制，但目前不是端到端加密架構。</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-label="與其他功能整合">
+        <h3>與其他功能的整合</h3>
+        <div class="faq-list">
+          <article class="faq-item"><h4>Q13：藥物紀錄如何與情緒趨勢圖相關聯？</h4><p>A：可以把趨勢變化的時間點對照藥物調整紀錄，幫助理解藥物可能帶來的影響。</p></article>
+          <article class="faq-item"><h4>Q14：AI 反思會考慮我的藥物嗎？</h4><p>A：會。AI 回饋會參考藥物調整歷史與其他日常紀錄，提供更有脈絡的回饋。</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-label="使用技巧">
+        <h3>使用技巧</h3>
+        <div class="faq-list">
+          <article class="faq-item"><h4>Q15：如何區分已停用和正在服用的藥物？</h4><p>A：列表會有狀態標籤。正在服用會優先顯示，已停用保留歷史紀錄並置於較後方。</p></article>
+          <article class="faq-item"><h4>Q16：可以為藥物添加備註或提醒嗎？</h4><p>A：可以。可記錄服用注意事項，並設定提醒降低漏服機率。</p></article>
+          <article class="faq-item"><h4>Q17：可以批量編輯多種藥物嗎？</h4><p>A：目前不支援一次批量編輯，需逐項更新。</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-label="常見問題補充">
+        <h3>常見問題</h3>
+        <div class="faq-list">
+          <article class="faq-item"><h4>Q18：如果忘記填寫某一天的服藥打卡怎麼辦？</h4><p>A：可回到過去日期補填，系統會保留修改紀錄。</p></article>
+          <article class="faq-item"><h4>Q19：藥物紀錄會影響情緒評分或趨勢準確性嗎？</h4><p>A：不會。藥物與情緒是獨立紀錄，但可手動對照找出關聯。</p></article>
+          <article class="faq-item"><h4>Q20：可以保留已停用藥物的完整紀錄嗎？</h4><p>A：可以。停用後歷史資料仍會完整保留。</p></article>
+          <article class="faq-item"><h4>Q21：多設備同步會不會出現衝突？</h4><p>A：系統會自動處理衝突並同步最新版本。</p></article>
+          <article class="faq-item"><h4>Q22：藥物紀錄有每日使用限制嗎？</h4><p>A：沒有。可管理多種藥物且不受次數限制。</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-label="技術方面">
+        <h3>技術方面</h3>
+        <div class="faq-list">
+          <article class="faq-item"><h4>Q23：藥物資料保存在哪裡？</h4><p>A：本地優先保存，並可在啟用同步時上傳雲端以便多裝置還原。</p></article>
+          <article class="faq-item"><h4>Q24：藥物紀錄會占用多少手機空間？</h4><p>A：通常占用很少，屬於文字型資料，不會像影音檔那樣大。</p></article>
+          <article class="faq-item"><h4>Q25：藥物資料可以備份和還原嗎？</h4><p>A：可以。使用同帳號登入並同步後可還原資料。</p></article>
+          <article class="faq-item"><h4>Q26：如何刪除不想要的藥物紀錄？</h4><p>A：建議先標記停用；若要永久刪除，請確認後再操作，刪除後無法復原。</p></article>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-label="最佳實踐">
+        <h3>最佳實踐</h3>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h4>Q27：如何最有效地使用藥物紀錄？</h4>
+            <p>A：</p>
+            <ol>
+              <li>初期先完整建立目前與過去重要用藥清單。</li>
+              <li>每天固定時間打卡，建立穩定習慣。</li>
+              <li>定期檢視藥物與症狀變化。</li>
+              <li>回診前匯出摘要，提升溝通效率。</li>
+              <li>每次調藥後立即更新資料。</li>
+              <li>把重要服藥注意事項寫進備註。</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>copyright © 2026 心域 Innera All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const navbar = document.querySelector(".navbar");
+      const navToggle = document.querySelector(".nav-toggle");
+      const primaryNav = document.getElementById("primary-nav");
+      const submenuItems = primaryNav ? Array.from(primaryNav.querySelectorAll(".has-submenu")) : [];
+
+      function closeMobileNav() {
+        if (!navbar || !navToggle) {
+          return;
+        }
+
+        navbar.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+
+        submenuItems.forEach((item) => {
+          item.classList.remove("submenu-open");
+          const toggle = item.querySelector(".submenu-toggle");
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+
+      if (!navbar || !navToggle || !primaryNav) {
+        return;
+      }
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = navbar.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      primaryNav.querySelectorAll("a").forEach((anchor) => {
+        anchor.addEventListener("click", () => {
+          if (window.matchMedia("(max-width: 768px)").matches) {
+            closeMobileNav();
+          }
+        });
+      });
+
+      submenuItems.forEach((item) => {
+        const toggle = item.querySelector(".submenu-toggle");
+        if (!toggle) {
+          return;
+        }
+
+        toggle.addEventListener("click", (event) => {
+          event.preventDefault();
+          const isSubmenuOpen = item.classList.toggle("submenu-open");
+          toggle.setAttribute("aria-expanded", String(isSubmenuOpen));
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (!window.matchMedia("(max-width: 768px)").matches) {
+          closeMobileNav();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
