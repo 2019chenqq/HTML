@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App 使用指南 | 心域 Innera</title>
+  <meta name="description" content="心域 App 使用指南，整理快速開始、日常紀錄、趨勢分析、日記書寫、藥物管理與常見問題。">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body class="guide-page">
+  <header class="navbar">
+    <a class="logo-area" href="../index.html" aria-label="回到首頁">
+      <img src="../images/logo.jpg" class="logo" alt="心域 Logo">
+      <div class="brand-text">
+        <div class="brand-title">
+          <h1>心域</h1>
+          <span>INNERA</span>
+        </div>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="primary-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="primary-nav">
+      <a href="../index.html">首頁</a>
+      <div class="nav-item has-submenu">
+        <a href="../about/about.html">關於我們</a>
+        <button class="submenu-toggle" type="button" aria-label="展開關於我們子選單" aria-expanded="false">▾</button>
+        <div class="submenu">
+          <a href="../about/about.html#about-motivation">開發動機</a>
+          <a href="../about/about.html#about-expectation">我們期許</a>
+          <a href="../about/about.html#about-social">社會議題</a>
+          <a href="../about/about.html#about-timeline">發展時間線</a>
+          <a href="../about/about.html#about-roadmap">未來規劃</a>
+        </div>
+      </div>
+      <a href="../index.html#feature-intro">功能介紹</a>
+      <div class="nav-item has-submenu">
+        <a href="daily-record.html" aria-current="page">App 使用指南</a>
+        <button class="submenu-toggle" type="button" aria-label="展開 App 使用指南子選單" aria-expanded="false">▾</button>
+        <div class="submenu">
+          <a href="daily-record.html" aria-current="page">每日紀錄</a>
+        </div>
+      </div>
+      <a href="../index.html#contact-us">聯繫我們</a>
+      <div class="nav-item has-submenu">
+        <a href="../FAQ/faq.html">常見問題</a>
+        <button class="submenu-toggle" type="button" aria-label="展開常見問題子選單" aria-expanded="false">▾</button>
+        <div class="submenu">
+          <a href="../FAQ/faq-emotion-trend.html">情緒趨勢圖</a>
+          <a href="../FAQ/faq-diary.html">日記功能</a>
+          <a href="../FAQ/faq-medication.html">藥物紀錄</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="guide-hero">
+      <span>USER GUIDE</span>
+      <h1>心域 App 使用指南</h1>
+      <p>從日常紀錄、趨勢分析到藥物管理，陪你一步步熟悉心域的使用方式。</p>
+    </section>
+
+    <section class="guide-menu">
+      <a href="#quick-start">快速開始</a>
+      <a href="#daily-record">日常紀錄</a>
+      <a href="#trend">趨勢分析</a>
+      <a href="#diary">日記書寫</a>
+      <a href="#medicine">藥物管理</a>
+      <a href="#faq">常見問題</a>
+      <a href="#future">未來規劃</a>
+    </section>
+
+    <section class="guide-section" id="quick-start">
+      <h2>快速開始</h2>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <span class="step-number">01</span>
+          <h3>建立每日紀錄</h3>
+          <p>進入紀錄頁，選擇今天的情緒、症狀與睡眠狀態，先留下最基礎的身心資訊。</p>
+        </div>
+        <div class="guide-step">
+          <span class="step-number">02</span>
+          <h3>查看趨勢</h3>
+          <p>透過趨勢圖觀察近期變化，找出影響情緒、睡眠或症狀的可能脈絡。</p>
+        </div>
+        <div class="guide-step">
+          <span class="step-number">03</span>
+          <h3>管理藥物</h3>
+          <p>新增目前用藥、記錄回診調藥與每日服藥狀態，完整保留治療歷程。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section" id="daily-record">
+      <h2>日常紀錄</h2>
+      <p>日常紀錄包含情緒、症狀與睡眠，是心域最核心的功能。你可以每天簡單勾選，也可以補上文字備註，讓後續回顧更完整。</p>
+      <div class="guide-section-grid">
+        <div class="guide-panel">
+          <h3>情緒</h3>
+          <p>選擇當天最貼近的情緒狀態，幫助你看見波動與變化。</p>
+          <video class="guide-panel-video" controls preload="metadata">
+            <source src="../Video/mood.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+        <div class="guide-panel">
+          <h3>症狀</h3>
+          <p>勾選身體或心理上的不適，例如疲倦、焦慮、頭痛、心悸等。</p>
+          <video class="guide-panel-video" controls preload="metadata">
+            <source src="../Video/symptoms.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+        <div class="guide-panel">
+          <h3>睡眠</h3>
+          <p>記錄入睡、醒來、睡眠品質與中斷情況，方便搭配趨勢分析回看。</p>
+          <video class="guide-panel-video" controls preload="metadata">
+            <source src="../Video/sleep record.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+      </div>
+      <p class="guide-note">建議先養成每天 30 秒的紀錄習慣，比一次記很多更容易維持。</p>
+    </section>
+
+    <section class="guide-section" id="trend">
+      <h2>趨勢分析</h2>
+      <p>趨勢圖會把你累積的紀錄整理成視覺化變化，幫助你理解近期狀態是否穩定，以及哪些因素可能正在影響你。</p>
+      <div class="guide-section-grid">
+        <div class="guide-panel">
+          <h3>看波動</h3>
+          <p>觀察情緒或症狀是否在某幾天集中變化，找出壓力高峰。</p>
+        </div>
+        <div class="guide-panel">
+          <h3>看關聯</h3>
+          <p>把睡眠、情緒與症狀放在一起看，更容易理解事件之間的連動。</p>
+        </div>
+        <div class="guide-panel">
+          <h3>看長期</h3>
+          <p>拉長區間後，能更清楚辨認週期性變化與復原進展。</p>
+        </div>
+        <div class="guide-trend-video-wrap">
+          <video class="guide-panel-video" controls preload="metadata" playsinline>
+            <source src="../Video/trend.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section" id="diary">
+      <h2>日記書寫</h2>
+      <p>日記是把感受說清楚的地方，適合記下事件、想法、身體反應或回診後的觀察。文字越完整，後續回顧越有幫助。</p>
+      <div class="guide-section-grid">
+        <div class="guide-panel">
+          <h3>記下發生了什麼</h3>
+          <p>簡單寫出今天遇到的事情、情緒來源或讓你在意的片段。</p>
+        </div>
+        <div class="guide-panel">
+          <h3>補上身體感受</h3>
+          <p>如果有胸悶、失眠、疲憊或其他不舒服，也可以一起記錄。</p>
+        </div>
+        <div class="guide-panel">
+          <h3>留下回診素材</h3>
+          <p>可把想問醫師的內容先寫下，回診時就不容易忘記。</p>
+        </div>
+        <div class="guide-diary-video-wrap">
+          <video class="guide-panel-video" controls preload="metadata" playsinline>
+            <source src="../Video/diary.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section" id="medicine">
+      <h2>藥物管理</h2>
+      <p>藥物管理會整理你的用藥清單、每日打卡與調藥紀錄，讓你和醫師都能快速回看治療歷程。</p>
+      <div class="guide-section-grid">
+        <div class="guide-panel">
+          <h3>新增藥物</h3>
+          <p>把目前正在服用的藥物建檔，方便之後追蹤。</p>
+          <video class="guide-panel-video" controls preload="metadata" playsinline>
+            <source src="../Video/med_add.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+        <div class="guide-panel">
+          <h3>回診調藥</h3>
+          <p>每次回診後更新劑量或停藥資訊，保留完整的用藥脈絡。</p>
+          <video class="guide-panel-video" controls preload="metadata" playsinline>
+            <source src="../Video/med_adjustment.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+        <div class="guide-panel">
+          <h3>症狀交叉比對</h3>
+          <p>對比用藥前後的症狀變化，幫助評估藥物效果與副作用。</p>
+          <video class="guide-panel-video" controls preload="metadata" playsinline>
+            <source src="../Video/med_compare.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+      </div>
+      <div class="guide-symptom-compare-wrap">
+        <div class="guide-panel">
+          <h3>每日打卡</h3>
+          <p>記錄有沒有按時服藥，協助了解遵從率與漏服情況。</p>
+          <video class="guide-panel-video" controls preload="metadata" playsinline>
+            <source src="../Video/藥物打卡.mp4" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section" id="future">
+      <span class="coming-soon">COMING SOON</span>
+      <h2>未來開發功能</h2>
+      <p>以下功能仍在規劃與開發中，尚未全部開放使用。</p>
+      <ul class="guide-list coming-soon-list">
+        <li>
+          <strong>更多自動化洞察</strong>
+          <span>之後會持續優化趨勢提示，幫助你更快看懂每天的變化。</span>
+        </li>
+        <li>
+          <strong>更多照護入口</strong>
+          <span>包含更多資源、資訊整理與可能的求助路徑。</span>
+        </li>
+        <li>
+          <strong>更完整的紀錄整合</strong>
+          <span>持續把情緒、睡眠、症狀與用藥串成更完整的照護脈絡。</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>copyright © 2026 心域 Innera All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const navbar = document.querySelector(".navbar");
+      const navToggle = document.querySelector(".nav-toggle");
+      const primaryNav = document.getElementById("primary-nav");
+      const submenuItems = primaryNav ? Array.from(primaryNav.querySelectorAll(".has-submenu")) : [];
+
+      function closeMobileNav() {
+        if (!navbar || !navToggle) {
+          return;
+        }
+
+        navbar.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+
+        submenuItems.forEach((item) => {
+          item.classList.remove("submenu-open");
+          const toggle = item.querySelector(".submenu-toggle");
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+
+      if (!navbar || !navToggle || !primaryNav) {
+        return;
+      }
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = navbar.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      primaryNav.querySelectorAll("a").forEach((anchor) => {
+        anchor.addEventListener("click", () => {
+          if (window.matchMedia("(max-width: 768px)").matches) {
+            closeMobileNav();
+          }
+        });
+      });
+
+      submenuItems.forEach((item) => {
+        const toggle = item.querySelector(".submenu-toggle");
+        if (!toggle) {
+          return;
+        }
+
+        toggle.addEventListener("click", (event) => {
+          event.preventDefault();
+          const isSubmenuOpen = item.classList.toggle("submenu-open");
+          toggle.setAttribute("aria-expanded", String(isSubmenuOpen));
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (!window.matchMedia("(max-width: 768px)").matches) {
+          closeMobileNav();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

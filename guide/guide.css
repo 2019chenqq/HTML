@@ -1,0 +1,364 @@
+.guide-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(91, 191, 211, 0.12), transparent 28%),
+    linear-gradient(180deg, #f7fdff 0%, #eefaff 100%);
+}
+
+body {
+  background: #f4fbff;
+}
+
+.guide-hero {
+  padding-top: 142px;
+}
+
+.guide-section {
+  position: relative;
+}
+
+.guide-section::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 48px;
+  width: min(680px, 84%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(91, 191, 211, 0.45), transparent);
+}
+
+.guide-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.guide-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(155, 215, 245, 0.7);
+  border-radius: 24px;
+  padding: 24px 22px;
+  box-shadow: 0 18px 45px rgba(80, 160, 180, 0.12);
+}
+
+.guide-panel h3 {
+  margin: 0 0 10px;
+  color: #0b143f;
+  font-size: 22px;
+}
+
+.guide-panel p {
+  margin: 0;
+  color: #5f747b;
+}
+
+.guide-panel-video {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  border-radius: 14px;
+  background: #0b143f;
+}
+
+.guide-trend-video-wrap {
+  width: 100%;
+  margin: 0;
+  grid-column: 2 / 3;
+  justify-self: center;
+  transform: translateX(30px);
+}
+
+.guide-trend-video-wrap .guide-panel-video {
+  margin-top: 0;
+  width: clamp(230px, 23vw, 290px);
+  height: clamp(390px, 38vw, 500px);
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(80, 160, 180, 0.18);
+}
+
+@media (max-width: 900px) {
+  .guide-trend-video-wrap {
+    grid-column: 1 / -1;
+    transform: none;
+  }
+}
+
+.guide-diary-video-wrap {
+  width: 100%;
+  margin: 0;
+  grid-column: 2 / 3;
+  justify-self: center;
+  transform: translateX(30px);
+}
+
+.guide-diary-video-wrap .guide-panel-video {
+  margin-top: 0;
+  width: clamp(230px, 23vw, 290px);
+  height: clamp(390px, 38vw, 500px);
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(80, 160, 180, 0.18);
+}
+
+@media (max-width: 900px) {
+  .guide-diary-video-wrap {
+    grid-column: 1 / -1;
+    transform: none;
+  }
+}
+
+.guide-symptom-compare-wrap {
+  max-width: 1100px;
+  margin: 22px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.guide-symptom-compare-wrap .guide-panel {
+  width: clamp(230px, 23vw, 290px);
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.guide-step {
+  background: linear-gradient(180deg, #ffffff, #f7fdff);
+  border: 1px solid rgba(155, 215, 245, 0.65);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 18px 40px rgba(80, 160, 180, 0.1);
+}
+
+.guide-step .step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #dff6ff;
+  color: #0b143f;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.guide-step h3,
+.guide-faq-item h3 {
+  margin: 0 0 10px;
+  color: #0b143f;
+  font-size: 21px;
+}
+
+.guide-note {
+  margin-top: 34px;
+  color: #5f747b;
+  font-size: 16px;
+}
+
+.guide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 860px;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+
+.guide-list li {
+  background: #ffffff;
+  border: 1px solid rgba(155, 215, 245, 0.65);
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 26px rgba(80, 160, 180, 0.08);
+}
+
+.guide-list strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #0b143f;
+}
+
+.guide-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.guide-faq-item {
+  background: #ffffff;
+  border: 1px solid rgba(155, 215, 245, 0.65);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 18px 45px rgba(80, 160, 180, 0.1);
+}
+
+.guide-faq-item p {
+  margin: 0;
+  color: #5f747b;
+}
+
+.coming-soon-list {
+  max-width: 900px;
+}
+
+.coming-soon-list li {
+  background: rgba(234, 250, 255, 0.9);
+}
+
+footer {
+  padding: 24px 8% 42px;
+  text-align: center;
+  color: #5f747b;
+}
+
+@media (max-width: 768px) {
+  .guide-hero {
+    padding-top: 128px;
+  }
+
+  .guide-section::before {
+    top: 36px;
+  }
+}
+
+.guide-hero {
+  padding: 150px 8% 80px;
+  text-align: center;
+  background: linear-gradient(180deg, #eafaff, #f4fbff);
+}
+
+.guide-hero span,
+.coming-soon {
+  color: #5bbfd3;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.guide-hero h1 {
+  font-size: 52px;
+  color: #0b143f;
+  margin: 16px 0;
+}
+
+.guide-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #5f747b;
+  font-size: 18px;
+}
+
+.guide-menu {
+  position: sticky;
+  top: 92px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 8%;
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(155,215,245,0.45);
+}
+
+.guide-menu a {
+  text-decoration: none;
+  color: #0b143f;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #eafaff;
+}
+
+.guide-menu a:hover {
+  background: #5bbfd3;
+  color: white;
+}
+
+.guide-section {
+  padding: 90px 8%;
+  text-align: center;
+}
+
+.guide-section h2 {
+  font-size: 38px;
+  color: #0b143f;
+}
+
+.guide-section p {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  color: #5f747b;
+  font-size: 18px;
+}
+
+.guide-section p.guide-note {
+  margin: 50px auto 40px;
+  font-size: 16px;
+}
+
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.step-card {
+  background: white;
+  border: 1px solid rgba(155,215,245,0.7);
+  border-radius: 28px;
+  padding: 34px 28px;
+  box-shadow: 0 18px 45px rgba(80,160,180,0.12);
+}
+
+.step-card span {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dff6ff;
+  color: #0b143f;
+  font-weight: 800;
+}
+
+.step-card h3 {
+  color: #0b143f;
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .guide-hero h1 {
+    font-size: 36px;
+  }
+
+  .step-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-menu {
+    top: 120px;
+  }
+}
